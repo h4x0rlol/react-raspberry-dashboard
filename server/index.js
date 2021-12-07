@@ -2,6 +2,8 @@ require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const axios = require("axios").default;
+const util = require("util");
+const exec = util.promisify(require("child_process").exec);
 
 const PORT = process.env.PORT || 5000;
 
@@ -10,6 +12,18 @@ app.listen(PORT, () => console.log(`Server started on ${PORT} port`));
 app.use(cors());
 
 //Sensors
+const SCRIPT_PATH = "/home/pi/Adafruit_Python_DHT/examples/AdafruitDHT.py 22 4";
+
+const getSensorsData = async () => {
+  try {
+    const { stdout } = await exec(SCRIPT_PATH);
+    console.log("stdout:", stdout);
+    return stdout;
+  } catch (e) {
+    console.log(e);
+    return e;
+  }
+};
 
 // Weather
 const OPENWEATHER_API_KEY = process.env.OPENWEATHER_API_KEY;
@@ -49,11 +63,13 @@ const getCryptoRate = async () => {
 };
 
 app.get("/info", async (req, res) => {
-  const weatherData = await getWeather();
-  const cryptoData = await getCryptoRate();
-  const response = {
-    weatherData,
-    cryptoData,
-  };
-  res.send(response);
+  //   const weatherData = await getWeather();
+  //   const cryptoData = await getCryptoRate();
+  const sensorsData = await getSensorsData();
+  //   const response = {
+  //     weatherData,
+  //     cryptoData,
+  //   };
+  console.log(sensorsData);
+  res.send(sensorsData);
 });
