@@ -3,7 +3,10 @@ import React from "react";
 export const RoomSensors = () => {
   return (
     <div className="w-full 2xl:w-1/2 flex rounded-tr bg-auto">
-      <div className="rounded-tr py-6  w-full bg-gray-800 text-white flex flex-col items-center">
+      <div
+        className="rounded-tr py-6 w-full text-white flex flex-col items-center"
+        style={{ backgroundColor: "#2c3e50" }}
+      >
         <h2 className="flex flex-row font-semibold text-center text-3xl leading-none pb-5">
           14:05
         </h2>
@@ -27,7 +30,7 @@ export const RoomSensors = () => {
           </svg>
         </h2>
 
-        <h2 className="flex flex-row font-semibold text-center text-2xl leading-none pb-2">
+        <h2 className="flex flex-row font-semibold text-center text-2xl leading-none">
           Humidity: 27
           <svg
             className="h-7 w-7 ml-1"

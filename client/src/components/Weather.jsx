@@ -3,7 +3,10 @@ import React from "react";
 export const Weather = () => {
   return (
     <div className="w-full 2xl:w-1/2 flex  bg-auto rounded-tl">
-      <div className="rounded-tl pt-6 pl-8 pr-32 w-full bg-blue-400 opacity-90 text-white">
+      <div
+        className="rounded-tl py-6 pl-8 pr-32 w-full opacity-90 text-white"
+        style={{ backgroundColor: "#3498db" }}
+      >
         <div className="flex flex-row justify-between">
           <div>
             <div className="mb-1 w-max">
@@ -93,7 +96,7 @@ export const Weather = () => {
           </div>
 
           <div>
-            <div className="mb-6 ml-28 lg:w-max">
+            <div className="ml-28 lg:w-max">
               <h2 className="font-semibold text-3xl leading-none pb-1">
                 Scattered clouds
               </h2>
