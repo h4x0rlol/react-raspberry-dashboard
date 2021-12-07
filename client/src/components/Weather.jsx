@@ -4,13 +4,13 @@ export const Weather = ({ currentDate, weatherData }) => {
   return (
     <div className="w-full 2xl:w-1/2 flex  bg-auto rounded-tl">
       <div
-        className="rounded-tl py-6 pl-8 pr-32 w-full opacity-95 text-white"
+        className="rounded-tl py-6 pl-8 pr-4 lg:pr-32 w-full opacity-95 text-white"
         style={{ backgroundColor: "#3498db" }}
       >
         <div className="flex flex-row justify-between">
-          <div>
+          <div className="flex">
             <div className="mb-1 w-max">
-              <h2 className="font-semibold text-3xl leading-none pb-2">
+              <h2 className="font-semibold text-xl lg:text-3xl leading-none pb-2">
                 {currentDate?.dayName}
               </h2>
               <h3 className="pb-2">
@@ -100,10 +100,10 @@ export const Weather = ({ currentDate, weatherData }) => {
             </div>
           </div>
 
-          <div>
-            <div className="lg:w-max ml-20">
+          <div className="flex">
+            <div className="lg:w-max ml-1 lg:ml-20">
               <h2
-                className="font-semibold text-3xl leading-none pb-1"
+                className="font-semibold text-xl lg:text-3xl leading-none pb-1"
                 style={{ textTransform: "capitalize" }}
               >
                 {weatherData?.weather?.[0]?.description}

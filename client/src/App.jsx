@@ -8,6 +8,7 @@ import { format, getDate, getYear } from "date-fns";
 import { enUS } from "date-fns/locale";
 
 const API_URL = "http://localhost:5000/info";
+const DELAY = 300000; // 5 minutes
 
 const App = () => {
   const [responseData, setResponseData] = useState();
@@ -50,15 +51,15 @@ const App = () => {
   useEffect(() => {
     getCurrentDate();
     fetchData();
-    // const interval = setInterval(() => {
-    //   fetchData();
-    // }, 5000);
+    const interval = setInterval(() => {
+      fetchData();
+    }, DELAY);
 
-    // return () => clearInterval(interval);
+    return () => clearInterval(interval);
   }, []);
 
   return (
-    <div className="h-screen flex  justify-center app items-center">
+    <div className="h-screen overflow-hidden flex  justify-center app items-center">
       {errors && <div>{errors.message}</div>}
 
       {loading && (

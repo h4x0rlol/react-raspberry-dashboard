@@ -4,32 +4,34 @@ export const Currency = ({ cryptoData }) => {
   return (
     <div className="w-full 2xl:w-1/2 flex bg-auto rounded-bl">
       <div
-        className="rounded-bl py-6 pl-8 pr-32 w-full opacity-95 text-white"
+        className="rounded-bl py-6 pl-8 pr-4 lg:pr-32 w-full opacity-95 text-white"
         style={{ backgroundColor: "#7f8c8d" }}
       >
         <div className="flex flex-row justify-between">
           <div>
             <div className="mb-1 w-max">
-              <h2 className="font-semibold text-3xl leading-none pb-5">
+              <h2 className="font-semibold text-xl lg:text-3xl leading-none pb-5">
                 Cryptocurrency:
               </h2>
-              <h2 className="font-semibold text-3xl leading-none pb-5">
+              <h2 className="font-semibold text-xl lg:text-3xl leading-none pb-5">
                 Price:
               </h2>
-              <h2 className="font-semibold text-3xl leading-none pb-5">24h:</h2>
+              <h2 className="font-semibold text-xl lg:text-3xl leading-none pb-5">
+                24h:
+              </h2>
             </div>
           </div>
 
           <div>
             <div className="lg:w-max">
-              <h2 className="font-semibold text-3xl leading-none pb-5">
+              <h2 className="font-semibold text-xl lg:text-3xl leading-none pb-5">
                 {cryptoData?.BNB?.symbol}
               </h2>
 
-              <h2 className="flex flex-row font-semibold text-3xl leading-none pb-5">
+              <h2 className="flex flex-row font-semibold text-xl lg:text-3xl leading-none pb-5">
                 {Number(cryptoData?.BNB?.quote?.USD?.price).toFixed(2)}
                 <svg
-                  className="h-8 w-8 ml-1"
+                  className="h-8 w-8 ml-1 mt-1"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -43,7 +45,7 @@ export const Currency = ({ cryptoData }) => {
                 </svg>
               </h2>
 
-              <h2 className="flex flex-row font-semibold text-3xl leading-none ">
+              <h2 className="flex flex-row font-semibold text-xl lg:text-3xl leading-none ">
                 {Number(
                   cryptoData?.BNB?.quote?.USD?.percent_change_24h
                 ).toFixed(2)}
@@ -52,7 +54,7 @@ export const Currency = ({ cryptoData }) => {
                   cryptoData?.BNB?.quote?.USD?.percent_change_24h
                 ).toFixed(2) > 0 ? (
                   <svg
-                    className="h-8 w-8 ml-1"
+                    className="h-8 w-8 ml-1 mt-1"
                     width="24"
                     height="24"
                     viewBox="0 0 24 24"
@@ -69,7 +71,7 @@ export const Currency = ({ cryptoData }) => {
                   </svg>
                 ) : (
                   <svg
-                    className="h-8 w-8 ml-1"
+                    className="h-8 w-8 ml-1 mt-1"
                     width="24"
                     height="24"
                     viewBox="0 0 24 24"
