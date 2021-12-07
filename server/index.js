@@ -34,7 +34,7 @@ const getRaspberryTemp = async () => {
   try {
     const gpu = await exec(GPU_TEMP);
     const cpu = await exec(CPU_TEMP);
-    const gpuTemp = gpu.stdout.match(regex).map((v) => parseFloat(v));
+    const gpuTemp = gpu.stdout.match(regex).map((v) => parseFloat(v))[0];
     const cpuTemp = Number(cpu.stdout) / 1000;
     return [gpuTemp, cpuTemp]; // 0 - gpu, 1 - cpu
   } catch (e) {
