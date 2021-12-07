@@ -11,17 +11,35 @@ const app = express();
 app.listen(PORT, () => console.log(`Server started on ${PORT} port`));
 app.use(cors());
 
-//Sensors
+// Sensors
 const SCRIPT_PATH = "/home/pi/Adafruit_Python_DHT/examples/AdafruitDHT.py 22 4";
+const regex = /[+-]?\d+(\.\d+)?/g; // to extract floats from string
 
 const getSensorsData = async () => {
   try {
     const { stdout } = await exec(SCRIPT_PATH);
-    console.log("stdout:", stdout);
-    return stdout;
+    const floats = stdout.match(regex).map((v) => parseFloat(v));
+    return floats; // 0 - temp, 1 - humidity
   } catch (e) {
-    console.log(e);
-    return e;
+    console.log(e.message);
+    return e.message;
+  }
+};
+
+// Raspberry temp
+const GPU_TEMP = "vcgencmd measure_temp";
+const CPU_TEMP = "cat /sys/class/thermal/thermal_zone0/temp";
+
+const getRaspberryTemp = async () => {
+  try {
+    const gpu = await exec(GPU_TEMP);
+    const cpu = await exec(CPU_TEMP);
+    const gpuTemp = gpu.stdout.match(regex).map((v) => parseFloat(v));
+    const cpuTemp = Number(cpu.stdout) / 1000;
+    return [gpuTemp, cpuTemp]; // 0 - gpu, 1 - cpu
+  } catch (e) {
+    console.log(e.message);
+    return e.message;
   }
 };
 
@@ -62,14 +80,25 @@ const getCryptoRate = async () => {
   }
 };
 
+// Request
 app.get("/info", async (req, res) => {
-  //   const weatherData = await getWeather();
-  //   const cryptoData = await getCryptoRate();
+  const weatherData = await getWeather();
+  const cryptoData = await getCryptoRate();
   const sensorsData = await getSensorsData();
-  //   const response = {
-  //     weatherData,
-  //     cryptoData,
-  //   };
-  console.log(sensorsData);
-  res.send(sensorsData);
+  const raspberryData = await getRaspberryTemp();
+
+  const response = {
+    weatherData,
+    cryptoData,
+    sensorsData: {
+      temp: sensorsData[0],
+      humidity: sensorsData[1],
+    },
+    raspberryData: {
+      gpu: raspberryData[0],
+      cpu: raspberryData[1],
+    },
+  };
+
+  res.send(response);
 });
