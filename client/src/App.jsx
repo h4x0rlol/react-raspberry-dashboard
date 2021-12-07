@@ -7,7 +7,7 @@ import axios from "axios";
 import { format, getDate, getYear } from "date-fns";
 import { enUS } from "date-fns/locale";
 
-const API_URL = "http://localhost:5000/info";
+const API_URL = "http://192.168.0.102:5000/info";
 const DELAY = 300000; // 5 minutes
 
 const App = () => {
