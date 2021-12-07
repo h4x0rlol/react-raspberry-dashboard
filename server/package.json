@@ -1,0 +1,19 @@
+{
+  "name": "react-raspberry-dashboard",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": "https://github.com/h4x0rlol/react-raspberry-dashboard",
+  "author": "h4x0rlol <mazafaker.com@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "axios": "^0.24.0",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1"
+  }
+}
