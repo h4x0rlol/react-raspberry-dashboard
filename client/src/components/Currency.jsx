@@ -17,13 +17,13 @@ export const Currency = () => {
           </div>
 
           <div>
-            <div className="mb-6  lg:w-max">
+            <div className="mb-6 lg:w-max">
               <h2 className="font-semibold text-3xl leading-none pb-5">BNB</h2>
 
               <h2 className="flex flex-row font-semibold text-3xl leading-none pb-5">
                 580.42
                 <svg
-                  class="h-8 w-8 ml-1 "
+                  className="h-8 w-8 ml-1 "
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"

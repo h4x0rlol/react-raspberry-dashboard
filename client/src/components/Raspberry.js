@@ -2,8 +2,50 @@ import React from "react";
 
 export const Raspberry = () => {
   return (
-    <div className="w-full lg:w-1/2 flex rounded-br bg-auto">
-      <div className="rounded-br py-6 pl-8 pr-32 w-full text-white bg-red-300"></div>
+    <div className="w-full 2xl:w-1/2 flex rounded-br bg-auto">
+      <div className="rounded-br py-6 w-full text-white flex flex-col items-center bg-green-600">
+        <h2 className="flex flex-row font-semibold text-center text-3xl leading-none pb-5">
+          Raspberry
+        </h2>
+
+        <h2 className="flex flex-row font-semibold text-center text-2xl leading-none pb-5">
+          CPU: 27
+          <svg
+            className="h-7 w-7 ml-1"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            strokeWidth="2"
+            stroke="currentColor"
+            fill="none"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" />{" "}
+            <circle cx="6" cy="8" r="2" />{" "}
+            <path d="M20 9a3 3 0 0 0 -3 -3h-1a3 3 0 0 0 -3 3v6a3 3 0 0 0 3 3h1a3 3 0 0 0 3 -3" />
+          </svg>
+        </h2>
+
+        <h2 className="flex flex-row font-semibold text-center text-2xl leading-none pb-2">
+          GPU: 27
+          <svg
+            className="h-7 w-7 ml-1"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            strokeWidth="2"
+            stroke="currentColor"
+            fill="none"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" />{" "}
+            <circle cx="6" cy="8" r="2" />{" "}
+            <path d="M20 9a3 3 0 0 0 -3 -3h-1a3 3 0 0 0 -3 3v6a3 3 0 0 0 3 3h1a3 3 0 0 0 3 -3" />
+          </svg>
+        </h2>
+      </div>
     </div>
   );
 };
