@@ -74,10 +74,13 @@ const App = () => {
               weatherData={responseData?.weatherData}
               currentDate={currentDate}
             />
-            <RoomSensors />
+            <RoomSensors
+              requestTime={requestTime}
+              sensorsData={responseData?.sensorsData}
+            />
           </div>
           <div className="flex flex-wrap w-full shadow-xl ">
-            <Currency />
+            <Currency cryptoData={responseData?.cryptoData} />
             <Raspberry />
           </div>
         </div>

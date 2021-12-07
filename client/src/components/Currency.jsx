@@ -1,6 +1,6 @@
 import React from "react";
 
-export const Currency = () => {
+export const Currency = ({ cryptoData }) => {
   return (
     <div className="w-full 2xl:w-1/2 flex bg-auto rounded-bl">
       <div
@@ -22,10 +22,12 @@ export const Currency = () => {
 
           <div>
             <div className="lg:w-max">
-              <h2 className="font-semibold text-3xl leading-none pb-5">BNB</h2>
+              <h2 className="font-semibold text-3xl leading-none pb-5">
+                {cryptoData?.BNB?.symbol}
+              </h2>
 
               <h2 className="flex flex-row font-semibold text-3xl leading-none pb-5">
-                580.42
+                {Number(cryptoData?.BNB?.quote?.USD?.price).toFixed(2)}
                 <svg
                   className="h-8 w-8 ml-1"
                   fill="none"
@@ -42,39 +44,47 @@ export const Currency = () => {
               </h2>
 
               <h2 className="flex flex-row font-semibold text-3xl leading-none ">
-                3.86 %
-                <svg
-                  className="h-8 w-8 ml-1"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  strokeWidth="2"
-                  stroke="currentColor"
-                  fill="none"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path stroke="none" d="M0 0h24v24H0z" />
-                  <line x1="12" y1="5" x2="12" y2="19" />
-                  <line x1="18" y1="11" x2="12" y2="5" />
-                  <line x1="6" y1="11" x2="12" y2="5" />
-                </svg>
-                {/* <svg
-                className="h-8 w-8 ml-1"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                strokeWidth="2"
-                stroke="currentColor"
-                fill="none"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path stroke="none" d="M0 0h24v24H0z" />{" "}
-                <line x1="12" y1="5" x2="12" y2="19" />{" "}
-                <line x1="18" y1="13" x2="12" y2="19" />{" "}
-                <line x1="6" y1="13" x2="12" y2="19" />
-              </svg> */}
+                {Number(
+                  cryptoData?.BNB?.quote?.USD?.percent_change_24h
+                ).toFixed(2)}
+                %
+                {Number(
+                  cryptoData?.BNB?.quote?.USD?.percent_change_24h
+                ).toFixed(2) > 0 ? (
+                  <svg
+                    className="h-8 w-8 ml-1"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    strokeWidth="2"
+                    stroke="currentColor"
+                    fill="none"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path stroke="none" d="M0 0h24v24H0z" />
+                    <line x1="12" y1="5" x2="12" y2="19" />
+                    <line x1="18" y1="11" x2="12" y2="5" />
+                    <line x1="6" y1="11" x2="12" y2="5" />
+                  </svg>
+                ) : (
+                  <svg
+                    className="h-8 w-8 ml-1"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    strokeWidth="2"
+                    stroke="currentColor"
+                    fill="none"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path stroke="none" d="M0 0h24v24H0z" />{" "}
+                    <line x1="12" y1="5" x2="12" y2="19" />{" "}
+                    <line x1="18" y1="13" x2="12" y2="19" />{" "}
+                    <line x1="6" y1="13" x2="12" y2="19" />
+                  </svg>
+                )}
               </h2>
             </div>
           </div>
