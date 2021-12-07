@@ -81,7 +81,7 @@ const App = () => {
           </div>
           <div className="flex flex-wrap w-full shadow-xl ">
             <Currency cryptoData={responseData?.cryptoData} />
-            <Raspberry />
+            <Raspberry raspberryData={responseData?.raspberryData} />
           </div>
         </div>
       )}

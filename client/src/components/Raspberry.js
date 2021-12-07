@@ -1,6 +1,6 @@
 import React from "react";
 
-export const Raspberry = () => {
+export const Raspberry = ({ raspberryData }) => {
   return (
     <div className="w-full 2xl:w-1/2 flex rounded-br bg-auto">
       <div
@@ -12,7 +12,7 @@ export const Raspberry = () => {
         </h2>
 
         <h2 className="flex flex-row font-semibold text-center text-2xl leading-none pb-5">
-          CPU: 27
+          CPU: {raspberryData?.cpu}
           <svg
             className="h-7 w-7 ml-1"
             width="24"
@@ -31,7 +31,7 @@ export const Raspberry = () => {
         </h2>
 
         <h2 className="flex flex-row font-semibold text-center text-2xl leading-none">
-          GPU: 27
+          GPU: {raspberryData?.gpu}
           <svg
             className="h-7 w-7 ml-1"
             width="24"
