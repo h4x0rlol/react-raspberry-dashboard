@@ -48,7 +48,7 @@ export const Currency = ({ cryptoData }) => {
               <h2 className="flex flex-row font-semibold text-xl lg:text-3xl leading-none ">
                 {Number(
                   cryptoData?.BNB?.quote?.USD?.percent_change_24h
-                ).toFixed(2)}
+                ).toFixed(2)}{" "}
                 %
                 {Number(
                   cryptoData?.BNB?.quote?.USD?.percent_change_24h
