@@ -4,7 +4,7 @@ export const RoomSensors = () => {
   return (
     <div className="w-full 2xl:w-1/2 flex rounded-tr bg-auto">
       <div
-        className="rounded-tr py-6 w-full text-white flex flex-col items-center"
+        className="rounded-tr py-6 w-full text-white opacity-90 flex flex-col items-center"
         style={{ backgroundColor: "#2c3e50" }}
       >
         <h2 className="flex flex-row font-semibold text-center text-3xl leading-none pb-5">
