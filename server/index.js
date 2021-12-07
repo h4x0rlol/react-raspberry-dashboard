@@ -82,14 +82,14 @@ const getCryptoRate = async () => {
 
 // Request
 app.get("/info", async (req, res) => {
-  // const weatherData = await getWeather();
-  // const cryptoData = await getCryptoRate();
+  const weatherData = await getWeather();
+  const cryptoData = await getCryptoRate();
   // const sensorsData = await getSensorsData();
   // const raspberryData = await getRaspberryTemp();
 
   const response = {
-    // weatherData,
-    // cryptoData,
+    weatherData,
+    cryptoData,
     // sensorsData: {
     //   temp: sensorsData[0],
     //   humidity: sensorsData[1],
@@ -100,5 +100,5 @@ app.get("/info", async (req, res) => {
     // },
   };
 
-  res.send("hello");
+  res.send(response);
 });

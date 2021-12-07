@@ -4,7 +4,7 @@ export const Currency = () => {
   return (
     <div className="w-full 2xl:w-1/2 flex bg-auto rounded-bl">
       <div
-        className="rounded-bl py-6 pl-8 pr-32 w-full opacity-90 text-white"
+        className="rounded-bl py-6 pl-8 pr-32 w-full opacity-95 text-white"
         style={{ backgroundColor: "#7f8c8d" }}
       >
         <div className="flex flex-row justify-between">

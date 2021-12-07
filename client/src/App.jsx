@@ -23,6 +23,7 @@ const App = () => {
       setRequestTime(time);
       const res = await axios.get(API_URL);
       setResponseData(res.data);
+      console.log(res.data);
       setLoading(false);
       setErrors(null);
     } catch (e) {
@@ -43,6 +44,7 @@ const App = () => {
       year,
       day,
     });
+    console.log(currentDate);
   };
 
   useEffect(() => {
@@ -56,17 +58,22 @@ const App = () => {
   }, []);
 
   return (
-    <div className="h-screen overflow-hidden flex  justify-center app items-center">
+    <div className="h-screen flex  justify-center app items-center">
       {errors && <div>{errors.message}</div>}
 
-      {loading && !errors ? (
+      {loading && (
         <div className="flex justify-center items-center">
           <div className="animate-spin rounded-full h-32 w-32 border-whiteborder-t-2 border-b-2 border-black" />
         </div>
-      ) : (
+      )}
+
+      {responseData && currentDate && requestTime && (
         <div className="w-full lg:px-60  justify-center container mx-auto ">
           <div className="flex flex-wrap w-full lg:w-auto  ">
-            <Weather />
+            <Weather
+              weatherData={responseData?.weatherData}
+              currentDate={currentDate}
+            />
             <RoomSensors />
           </div>
           <div className="flex flex-wrap w-full shadow-xl ">
