@@ -2,7 +2,7 @@ import React from "react";
 
 export const Weather = () => {
   return (
-    <div className="w-full lg:w-1/2 flex  bg-auto rounded-tl">
+    <div className="w-full 2xl:w-1/2 flex  bg-auto rounded-tl">
       <div className="rounded-tl pt-6 pl-8 pr-32 w-full bg-blue-400 opacity-90 text-white">
         <div className="flex flex-row justify-between">
           <div>
@@ -71,13 +71,13 @@ export const Weather = () => {
               </svg> */}
 
               <svg
-                class="h-12 w-12 pb-2 ml-6"
+                className="h-12 w-12 pb-2 ml-6"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               >
                 <circle cx="12" cy="12" r="5" />{" "}
                 <line x1="12" y1="1" x2="12" y2="3" />{" "}
