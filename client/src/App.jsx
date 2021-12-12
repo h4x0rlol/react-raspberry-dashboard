@@ -29,7 +29,7 @@ const App = () => {
       setErrors(null);
     } catch (e) {
       console.log(e);
-      setErrors(e.message);
+      setErrors(e);
       setLoading(false);
     }
   };
@@ -45,7 +45,6 @@ const App = () => {
       year,
       day,
     });
-    console.log(currentDate);
   };
 
   useEffect(() => {
@@ -70,7 +69,7 @@ const App = () => {
 
       {responseData && currentDate && requestTime && (
         <div className="w-full lg:px-60  justify-center container mx-auto ">
-          <div className="flex flex-wrap w-full lg:w-auto  ">
+          <div className="flex flex-wrap w-full lg:w-auto">
             <Weather
               weatherData={responseData?.weatherData}
               currentDate={currentDate}
@@ -80,7 +79,7 @@ const App = () => {
               sensorsData={responseData?.sensorsData}
             />
           </div>
-          <div className="flex flex-wrap w-full shadow-xl ">
+          <div className="flex flex-wrap w-full lg:w-auto shadow-xl">
             <Currency cryptoData={responseData?.cryptoData} />
             <Raspberry raspberryData={responseData?.raspberryData} />
           </div>

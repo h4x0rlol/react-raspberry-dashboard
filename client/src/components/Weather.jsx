@@ -1,6 +1,5 @@
-import React from "react";
-
 export const Weather = ({ currentDate, weatherData }) => {
+  const temp = weatherData?.main?.temp;
   return (
     <div className="w-full 2xl:w-1/2 flex  bg-auto rounded-tl">
       <div
@@ -41,7 +40,7 @@ export const Weather = ({ currentDate, weatherData }) => {
                 {weatherData?.name}, {weatherData?.sys?.country}
               </p>
 
-              {weatherData?.main?.temp > -5 ? (
+              {temp > -5 ? (
                 <svg
                   className="h-12 w-12 pb-2 ml-6"
                   viewBox="0 0 24 24"
@@ -108,9 +107,7 @@ export const Weather = ({ currentDate, weatherData }) => {
               >
                 {weatherData?.weather?.[0]?.description}
               </h2>
-              <h3 className="font-medium">
-                Temp: {weatherData?.main?.temp} ºC
-              </h3>
+              <h3 className="font-medium">Temp: {temp} ºC</h3>
               <h3>Feels like: {weatherData?.main?.feels_like} ºC</h3>
               <h3>Humidity: {weatherData?.main?.humidity} %</h3>
               <h3>Pressure: {weatherData?.main?.pressure} mmHg</h3>

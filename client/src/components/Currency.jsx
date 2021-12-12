@@ -1,6 +1,9 @@
-import React from "react";
-
 export const Currency = ({ cryptoData }) => {
+  const rate = Number(cryptoData?.BNB?.quote?.USD?.price).toFixed(2);
+  const percentChange = Number(
+    cryptoData?.BNB?.quote?.USD?.percent_change_24h
+  ).toFixed(2);
+
   return (
     <div className="w-full 2xl:w-1/2 flex bg-auto rounded-bl">
       <div
@@ -29,7 +32,7 @@ export const Currency = ({ cryptoData }) => {
               </h2>
 
               <h2 className="flex flex-row font-semibold text-xl lg:text-3xl leading-none pb-5">
-                {Number(cryptoData?.BNB?.quote?.USD?.price).toFixed(2)}
+                {rate}
                 <svg
                   className="h-8 w-8 ml-1 mt-1"
                   fill="none"
@@ -46,13 +49,8 @@ export const Currency = ({ cryptoData }) => {
               </h2>
 
               <h2 className="flex flex-row font-semibold text-xl lg:text-3xl leading-none ">
-                {Number(
-                  cryptoData?.BNB?.quote?.USD?.percent_change_24h
-                ).toFixed(2)}{" "}
-                %
-                {Number(
-                  cryptoData?.BNB?.quote?.USD?.percent_change_24h
-                ).toFixed(2) > 0 ? (
+                {percentChange} %
+                {percentChange > 0 ? (
                   <svg
                     className="h-8 w-8 ml-1 mt-1"
                     width="24"
@@ -81,9 +79,9 @@ export const Currency = ({ cryptoData }) => {
                     strokeLinecap="round"
                     strokeLinejoin="round"
                   >
-                    <path stroke="none" d="M0 0h24v24H0z" />{" "}
-                    <line x1="12" y1="5" x2="12" y2="19" />{" "}
-                    <line x1="18" y1="13" x2="12" y2="19" />{" "}
+                    <path stroke="none" d="M0 0h24v24H0z" />
+                    <line x1="12" y1="5" x2="12" y2="19" />
+                    <line x1="18" y1="13" x2="12" y2="19" />
                     <line x1="6" y1="13" x2="12" y2="19" />
                   </svg>
                 )}

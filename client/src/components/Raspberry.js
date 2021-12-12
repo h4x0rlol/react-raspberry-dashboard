@@ -1,5 +1,3 @@
-import React from "react";
-
 export const Raspberry = ({ raspberryData }) => {
   return (
     <div className="w-full 2xl:w-1/2 flex rounded-br bg-auto">

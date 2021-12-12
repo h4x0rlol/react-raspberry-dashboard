@@ -11,7 +11,7 @@ const app = express();
 app.listen(PORT, () => console.log(`Server started on ${PORT} port`));
 app.use(cors());
 
-// Sensors
+// Room air quality sensors
 const SCRIPT_PATH = "/home/pi/Adafruit_Python_DHT/examples/AdafruitDHT.py 22 4";
 const regex = /[+-]?\d+(\.\d+)?/g; // to extract floats from string
 
