@@ -21,8 +21,8 @@ const getSensorsData = async () => {
     const floats = stdout.match(regex).map((v) => parseFloat(v));
     return floats; // 0 - temp, 1 - humidity
   } catch (e) {
-    console.log(e.message);
-    return e.message;
+    console.log(e?.message);
+    return [e?.message, e?.message];
   }
 };
 
@@ -38,8 +38,8 @@ const getRaspberryTemp = async () => {
     const cpuTemp = Number(Number(cpu.stdout) / 1000).toFixed(1);
     return [gpuTemp, cpuTemp]; // 0 - gpu, 1 - cpu
   } catch (e) {
-    console.log(e.message);
-    return e.message;
+    console.log(e?.message);
+    return [e?.message, e?.message];
   }
 };
 
