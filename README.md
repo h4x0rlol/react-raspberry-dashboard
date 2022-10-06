@@ -31,7 +31,7 @@
 
 - Create raspbian bootale usb with [Pi Imager](https://www.raspberrypi.com/software/ "Pi Imager"), press ctrl+shift+x to open advanced options, setup wifi and ssh
 
-  [![Wifi settings](https://i.imgur.com/AW5pxmc.png "Wifi settings")](https://i.imgur.com/2zKzxVD.png "Wifi settings")
+  [![Wifi settings](https://i.imgur.com/2zKzxVD.png "Wifi settings")](https://i.imgur.com/2zKzxVD.png "Wifi settings")
 
 - Reserve the IP-address of Pi in the DHCP table of your router (mine is 192.168.0.102)
 - Connect to your Pi via ssh `ssh pi@192.168.0.102`
